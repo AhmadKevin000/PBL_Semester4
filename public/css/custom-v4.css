@@ -1,0 +1,111 @@
+/* 
+ * Custom Filament v4 Theme: Modern SaaS (Deep Navy & Indigo)
+ */
+
+:root {
+    --fi-body-bg: #020617;
+    --fi-sidebar-bg: transparent;
+    --fi-card-bg: #0f172a;
+    --fi-section-bg: #0f172a;
+}
+
+/* Global Background */
+body, .fi-main {
+    background-color: #020617 !important;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.03) 0px, transparent 50%) !important;
+}
+
+/* Sidebar Styling */
+.fi-sidebar {
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.fi-sidebar-item-active {
+    background-color: #6366f1 !important;
+    border-radius: 12px !important;
+    margin: 4px 8px !important;
+}
+
+.fi-sidebar-item-active * {
+    color: white !important;
+}
+
+/* Card & Section Styling */
+.fi-section, .fi-card, .fi-ta-content {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.fi-section:hover, .fi-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Topbar Styling */
+.fi-topbar {
+    background-color: rgba(2, 6, 23, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Button Styling */
+.fi-btn {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    transition: all 0.2s ease !important;
+}
+
+/* CTA Highlight (Kuning/Yellow) for 'Tambah' */
+.fi-btn-color-primary[type="submit"], 
+.fi-btn-color-primary[href*="create"],
+.fi-btn:has(span:contains("Tambah")),
+.fi-btn:has(span:contains("Tambah")) {
+    background-color: #f59e0b !important;
+    color: #020617 !important;
+    box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39) !important;
+}
+
+.fi-btn-color-primary[type="submit"]:hover, 
+.fi-btn-color-primary[href*="create"]:hover {
+    background-color: #d97706 !important;
+    transform: scale(1.02) !important;
+}
+
+/* Stats Widget Styling */
+.fi-wi-stats-overview-stat {
+    background-color: #1e293b !important;
+    border-radius: 16px !important;
+}
+
+/* Typography Overrides */
+h1, h2, h3, .fi-header-heading {
+    color: #e5e7eb !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+}
+
+.fi-ta-text-item-label {
+    color: #e5e7eb !important;
+}
+
+/* Badges */
+.fi-badge {
+    border-radius: 9999px !important;
+    font-weight: 600 !important;
+    padding: 2px 10px !important;
+}
+
+/* Input Fields */
+.fi-input-wrp {
+    background-color: rgba(2, 6, 23, 0.4) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
