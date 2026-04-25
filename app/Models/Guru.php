@@ -10,12 +10,18 @@ class Guru extends Model
     protected $table = 'guru';
 
     protected $fillable = [
+        'user_id',
         'nama',
         'email',
         'no_hp',
         'alamat',
         'status',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
 
     public function kelas()
     {

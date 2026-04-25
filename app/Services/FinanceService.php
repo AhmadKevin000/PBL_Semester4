@@ -33,7 +33,7 @@ class FinanceService
 
         if (!$tarif) return 0;
 
-        if ($tarif->type === 'per_subject') {
+        if ($tarif->type === 'per_mapel') {
             return (int) $tarif->nominal * max(1, $subjectCount);
         }
 

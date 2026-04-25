@@ -18,6 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // 0. Clean old sample data
+        \Illuminate\Support\Facades\Schema::disableForeignKeyConstraints();
+        Kelas::truncate();
+        Mapel::truncate();
+        Siswa::truncate();
+        Pengajaran::truncate();
+        \Illuminate\Support\Facades\Schema::enableForeignKeyConstraints();
+
         // 1. Admin User
         User::updateOrCreate(
             ['email' => 'admin@admin.com'],
@@ -44,6 +52,10 @@ class DatabaseSeeder extends Seeder
         foreach ($gurus as $g) {
             Guru::updateOrCreate(['email' => $g['email']], $g);
         }
+
+        $this->call([
+            CreateUserForExistingGurusSeeder::class,
+        ]);
 
         $guruSenior = Guru::where('status', 'senior')->first();
         $guruSemi = Guru::where('status', 'semi')->first();
@@ -88,8 +100,7 @@ class DatabaseSeeder extends Seeder
             // Create Kelas
             $kelas = Kelas::create([
                 'nama_kelas' => $dj['kelas'],
-                'jumlah_siswa' => count($dj['siswa']),
-                'keterangan' => 'Kelas sampel untuk ' . $dj['jenjang'],
+                'keterangan' => 'Kelas sampel for ' . $dj['jenjang'],
             ]);
 
             // Create Mapels & Link to Class
@@ -101,9 +112,9 @@ class DatabaseSeeder extends Seeder
                 ]);
 
                 Pengajaran::create([
-                    'kelas_id' => $kelas->id, // fixed from class_id to kelas_id
+                    'kelas_id' => $kelas->id, 
                     'guru_id' => ($dj['jenjang'] == 'SMA' || $dj['jenjang'] == 'SMP') ? $guruSenior->id : $guruSemi->id, // fixed from teacher_id to guru_id
-                    'mapel_id' => $mapel->id, // fixed from subject_id to mapel_id
+                    'mapel_id' => $mapel->id, 
                 ]);
             }
 

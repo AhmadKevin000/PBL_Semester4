@@ -14,7 +14,7 @@ return new class extends Migration
             $table->foreignId('program_id')->constrained('program')->onDelete('cascade');
 
             $table->decimal('nominal', 15, 2);
-            $table->enum('type', ['flat', 'per_subject'])->default('flat');
+            $table->enum('type', ['flat', 'per_mapel'])->default('flat');
             $table->timestamps();
         });
     }

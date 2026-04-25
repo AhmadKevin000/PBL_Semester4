@@ -53,7 +53,7 @@ class TarifSppSeeder extends Seeder
                 'program_id' => $reguler->id,
                 'jenjang_id' => $sma->id,
                 'nominal'    => 100000,
-                'type'       => 'per_subject',
+                'type'       => 'per_mapel',
             ],
             // TKA SD
             [
